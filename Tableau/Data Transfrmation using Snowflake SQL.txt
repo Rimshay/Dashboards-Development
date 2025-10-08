@@ -1,0 +1,35 @@
+select region, count(*) from tableau_dataset group by region
+
+Create table energy_consumption as select * from tableau_dataset
+
+select * from energy_consumption 
+
+select income_level, count(*) from energy_consumption group by income_level
+
+-- Increase teh value
+-- Low 10
+-- Middle 20
+-- High 30
+
+update energy_consumption set monthly_usage_kwh = monthly_usage_kwh * 1.1
+where income_level = 'Low'
+
+update energy_consumption set monthly_usage_kwh = monthly_usage_kwh * 1.2
+where income_level = 'Middle'
+
+update energy_consumption set monthly_usage_kwh = monthly_usage_kwh * 1.3
+where income_level = 'High'
+
+-- Reduce the values 
+-- Low 10
+-- Middle 20
+-- High 30
+
+update energy_consumption set COST_SAVINGS_USD = COST_SAVINGS_USD * 0.9
+where income_level = 'Low'
+
+update energy_consumption set COST_SAVINGS_USD = COST_SAVINGS_USD * 0.8
+where income_level = 'Middle'
+
+update energy_consumption set COST_SAVINGS_USD = COST_SAVINGS_USD * 0.7
+where income_level = 'High'
